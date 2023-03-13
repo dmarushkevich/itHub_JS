@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem2_KT1_Marushkevich_DA</title>
+</head>
+<body>
+  <button onclick="foo()">Добавить число</button>    
+ <script>
+
+function foo(){
+    let num = document.querySelectorAll('td')
+    let random_index = Math.floor(Math.random() * num.length)
+    let random_value = Math.floor(Math.random() * 100)
+    num[random_index].innerText = random_value
+    num[random_index].style.backgroundColor = ''
+    if (random_value >= 50){
+      num[random_index].style.backgroundColor = 'orange'
+    }
+}
+
+function main() {
+
+  let table = document.createElement("table");
+  let table_num = document.createElement("cells");
+ 
+  for (let i = 0; i < 6; i++) 
+  {
+    let row = document.createElement("tr");
+    for (let j = 0; j < 5; j++)
+    {
+
+      let cell = document.createElement("td");  
+	    let num = Math.floor(Math.random() * 100)
+      cell.innerText = num; 
+      row.appendChild(cell);
+	if (num >= 50) {cell.style.backgroundColor = "orange";}   
+    }
+
+    table_num.appendChild(row);
+  }
+  
+  document.body.appendChild(table);
+  table.appendChild(table_num);
+}
+
+main()
+
+ </script>
+</body>
+</html>
